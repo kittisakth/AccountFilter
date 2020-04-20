@@ -1,0 +1,26 @@
+<aura:component controller="ContactApexController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="Account" type="Account" />
+    <aura:attribute name="Contacts" type="Contact" />
+    <aura:attribute name="Columns" type="List" />
+    <force:recordData aura:id="accountRecord"
+                      recordId="{!v.recordId}"
+                      targetFields="{!v.Account}"
+                      layoutType="FULL"
+                      />
+    <lightning:card iconName="standard:contact" title="{! 'Edit Account: ' + v.Account.Name}">
+        <form class="slds-form--stacked">          
+            <lightning:input aura:id="accounutform" label="Account Name"
+                             name="accountname"
+                             value="{!v.Account.Name}"
+                             required="true"/> 
+            <lightning:input type="text" aura:id="expenseform" label="Type"
+                             name="accounttype"
+                             value="{!v.Account.Type}"/>
+            <lightning:button label="Create Expense" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.clickCreate}"/>
+        </form>
+    </lightning:card>
+</aura:component>

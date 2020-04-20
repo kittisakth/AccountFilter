@@ -1,0 +1,20 @@
+<aura:component controller="ContactApexController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="Contact" type="Contact" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <lightning:card iconName="standard:contact" title="{! 'Edit Contact Name: ' + v.Contact.Name}">
+        <form class="slds-form--stacked">          
+            <lightning:input aura:id="contactform" label="First name"
+                             name="accountname"
+                             value="{!v.Contact.FirstName}"
+                             required="true"/> 
+            <lightning:input type="text" aura:id="expenseform" label="Last name"
+                             name="contacttype"
+                             value="{!v.Contact.LastName}"/>
+            <lightning:button label="Update" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.clickUpdate}"/>
+        </form>
+    </lightning:card>
+</aura:component>

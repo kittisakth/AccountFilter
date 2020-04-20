@@ -1,0 +1,5 @@
+<aura:component controller="AccountController">
+    <aura:attribute name="accounts" type="Account[]"/>
+	<aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+   	Test
+</aura:component>
